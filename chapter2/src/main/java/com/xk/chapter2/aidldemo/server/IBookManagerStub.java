@@ -1,4 +1,4 @@
-package com.xk.chapter2.server;
+package com.xk.chapter2.aidldemo.server;
 
 import android.os.Binder;
 import android.os.IBinder;

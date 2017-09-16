@@ -1,4 +1,4 @@
-package com.xk.chapter2.server;
+package com.xk.chapter2.aidldemo.server;
 
 import android.os.IInterface;
 import android.os.RemoteException;
@@ -13,7 +13,7 @@ public interface IBookManager extends IInterface {
     int METHOD_ADDBOOK_ID = 0;
     int METHOD_GETBOOKLIST_ID = 1;
 
-     String DESCRIPTION = "com.xk.chapter2.server.IBookManager";
+     String DESCRIPTION = "com.xk.chapter2.aidldemo.server.IBookManager";
 
     void addBook(Book book) throws RemoteException;
 

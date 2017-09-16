@@ -1,4 +1,4 @@
-package com.xk.chapter2;
+package com.xk.chapter2.aidldemo;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -11,10 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
-import com.xk.chapter2.server.Book;
-import com.xk.chapter2.server.IBookManager;
-import com.xk.chapter2.server.IBookManagerStub;
-import com.xk.chapter2.server.RemoteService;
+import com.xk.chapter2.R;
+import com.xk.chapter2.aidldemo.server.Book;
+import com.xk.chapter2.aidldemo.server.IBookManager;
+import com.xk.chapter2.aidldemo.server.IBookManagerStub;
+import com.xk.chapter2.aidldemo.server.RemoteService;
 
 import java.util.Calendar;
 import java.util.List;
