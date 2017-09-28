@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        Log.d("MainActivity", "getBook-->" + bookList);
+        Log.d("ProviderActivity", "getBook-->" + bookList);
     }
 
     ServiceConnection conn = new ServiceConnection() {

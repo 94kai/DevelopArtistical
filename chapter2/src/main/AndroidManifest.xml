@@ -2,16 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xk.chapter2">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+    >
 
         <!-- <activity -->
-        <!-- android:name=".aidldemo.MainActivity" -->
+        <!-- android:name=".aidldemo.ProviderActivity" -->
         <!-- android:label="@string/title_activity_main" -->
         <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         <!-- <intent-filter> -->
@@ -22,14 +26,14 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <!--<activity-->
-            <!--android:name=".messengerdemo.client.MessengerActivity"-->
-            <!--android:label="@string/title_activity_main"-->
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--android:name=".messengerdemo.client.MessengerActivity"-->
+        <!--android:label="@string/title_activity_main"-->
+        <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <service
@@ -40,16 +44,54 @@
             android:process="com.xk.messengerservice" />
         <service
             android:name=".aidlusedemo.server.BookManagerService"
-            android:process=":x"
-            />
+            android:process=":x" />
 
-        <activity android:name=".aidlusedemo.client.Main2Activity">
+        <!--<activity android:name=".aidlusedemo.client.Main2Activity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name=".provider.ProviderActivity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name=".tcpdemo.TcpActivity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+        <activity android:name=".binderpool.BinderPoolActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <service
+            android:name=".tcpdemo.TcpService"
+            android:process=":tcpprocess" />
+        <!--内容提供者必须要注册，属于四大组件-->
+        <!--authorities 匹配这个提供者的uri算是前缀吧-->
+        <!--可以指定权限，也可以指定读权限、写权限（增删改查 哪个读 哪个写 很清楚）-->
+        <!--一般内容提供者用在多进程通讯中，所以我这里为provider指定了一个单独的进程，provider也可以放在其他app中，效果是一样的-->
+        <provider
+            android:name=".provider.BookProvider"
+            android:authorities="com.xk.chapter2.provider.BookProvider"
+            android:process=".bookprovider"
+            android:readPermission="read"
+            android:writePermission="write" />
+
+        <service
+            android:name=".binderpool.BinderPoolService"
+            android:process=":binderpool" />
     </application>
 
 </manifest>
